@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+  "name": "Test",
+  "version": "1.0",
+  "description": "Tests installing an unsigned extension to Firefox Release",
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.example.org/*"
+      ],
+      "js": [
+        "extension.js"
+      ]
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "tomas@hubelbauer.net"
+    }
+  }
+}
