@@ -85,3 +85,24 @@ of the non-happy-path or to succumb to the AMO review shenanigans and suffer the
 cycles of review ghosting for a review interleaved with comment-free rejections
 and other bullshit which doesn't matter for personal extensions which do not
 make sense to be published on AMO in the first place.
+
+## Update: Using Firefox Developer
+
+I decided to verify these steps work in Firefox Developer and I am even more
+disappointed now:
+
+The steps to pack the extension, disable extension signature checks and loading
+the extension all work, but afterwards, when turning extension signing back on,
+I am greeted with this:
+
+![](image-1.png)
+
+The only way to be able to use the extension at all is to keep the extension
+signing disabled forever.
+When I do that, the screen looks like this now:
+
+![](image-2.png)
+
+In the name of security, Mozilla has forced me to disable signature checks for
+all extensions instead of allowing me to grant an exception to an extension I
+wrote myself.
