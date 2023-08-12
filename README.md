@@ -2,9 +2,14 @@
 
 > [!NOTE]
 > This is a concluded experiment (attempted reproduction of a blog post) where I
-> was unable to reproduce successfully.
+> was unable to reproduce successfully but found a suitable workaround!
+>
 > To my knowledge, it is not possible to permanently install unsigned extensions
 > to Firefox unless Firefox Developer or Firefox ESR is used.
+>
+> However, it is possible to use AMO to sign the extension (interactive, is not
+> delayed by AMO review) and then install it from a file to Firefox!
+>
 > See the [Conclusion] section.
 
 I use Firefox and I am okay with the fact that Firefox extensions are required
@@ -106,3 +111,23 @@ When I do that, the screen looks like this now:
 In the name of security, Mozilla has forced me to disable signature checks for
 all extensions instead of allowing me to grant an exception to an extension I
 wrote myself.
+
+## Update: Signing the extension without publishing it on AMO
+
+Alexis who wrote the blog post above mentioned recalling it might be possible to
+sign the extension without going through the AMO publishing process.
+I assume this includes no need to go through the review and get own extension
+reviewed needlessly.
+
+I found steps for signing an extension here on Stack Overflow:
+https://stackoverflow.com/a/59172713/2715716
+
+1. Go to AMO and generate an API key: https://addons.mozilla.org/en-US/developers/addon/api/key
+2. Install `web-ext` using NPM: `npm install --global web-ext`
+    
+   It looks like https://github.com/mozilla/sign-addon is an alternative.
+
+3. Run `web-ext sign --api-key="JWT issuer" --api-secret="JWT secret"`
+4. Find `web-ext-artifacts/*.xpi`
+5. Go to `about:addons` and press the Gear icon
+6. Select Install Add-On From File and rejoyce
